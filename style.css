@@ -1,7 +1,14 @@
+html,
+body {
+  height: 100%;
+}
+
 body {
   margin: 0;
   padding: 0;
   font: 400 16px/24px monospace;
+  display: flex;
+  flex-direction: column;
 }
 
 .logo {
@@ -24,11 +31,56 @@ h2 {
 
 h1 {
   color: rgb(49, 212, 163);
+  font-size: 32px;
 }
 
 h2 {
   font-size: 9px;
   position: absolute;
   margin-left: 3px;
+  color: rgba(0, 0, 0, .5);
+}
+
+main {
+  flex-grow: 1;
+}
+
+.input {
+  display: flex;
+  width: 100%;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 12px;
+}
+
+.fg-input,
+.bg-input {
+  flex: 1;
+  margin-right: 24px;
+}
+
+.text-input {
+  flex: 1;
+}
+
+input,
+textarea {
+  display: block;
+  border: 0;
+  border-bottom: 1px solid rgb(49, 212, 163);
+  outline: 0;
+  font: inherit;
+  color: rgb(49, 212, 163);
+  width: 100%;
+  padding: 0;
+}
+
+textarea {
+  resize: none;
+}
+
+label div {
+  font-size: 9px;
   color: rgba(0, 0, 0, .5);
 }
