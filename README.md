@@ -1,2 +1,2 @@
 # emojipasta
-Emoji text for slack
+Emoji text generation for slack
