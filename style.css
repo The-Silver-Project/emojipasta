@@ -172,6 +172,6 @@ label div {
   height: 40px;
   padding: 12px;
   margin-top: -4px;
-  opacity: .3;
   cursor: pointer;
+  filter: invert(67%) sepia(15%) saturate(0%) hue-rotate(233deg) brightness(86%) contrast(88%);
 }
