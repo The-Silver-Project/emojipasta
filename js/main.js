@@ -8,6 +8,8 @@ const text = document.getElementById('text');
 const swap = document.getElementById('swap');
 const lights = document.getElementById('lights');
 let lightStatus = 1;
+const fgInputPreview = document.getElementById('fg-input-preview');
+const bgInputPreview = document.getElementById('bg-input-preview');
 
 function replaceStr(str, rep) {
   if (!rep.startsWith(':') || !rep.endsWith(':')) return str;
@@ -29,14 +31,37 @@ function run() {
   navigator.clipboard.writeText(str);
 }
 
-fg.addEventListener('input', run);
-bg.addEventListener('input', run);
+function updateInputPreview(value, target) {
+  if (!value.startsWith(':') || !value.endsWith(':')) {
+    target.innerHTML = '';
+    return;
+  }
+  const key = value.slice(1, -1);
+  if (!mapping[key]) {
+    target.innerHTML = '';
+    return;
+  }
+  target.innerHTML = `&#x${mapping[key]}`;
+}
+
+fg.addEventListener('input', (e) => {
+  updateInputPreview(e.target.value, fgInputPreview);
+  run();
+});
+
+bg.addEventListener('input', (e) => {
+  updateInputPreview(e.target.value, bgInputPreview);
+  run();
+});
+
 text.addEventListener('input', run);
 
 swap.addEventListener('click', () => {
   const temp = fg.value;
   fg.value = bg.value;
   bg.value = temp;
+  updateInputPreview(fg.value, fgInputPreview);
+  updateInputPreview(bg.value, bgInputPreview);
   run();
 });
 

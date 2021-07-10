@@ -94,6 +94,15 @@ main {
 .fg-input,
 .bg-input {
   flex: 1;
+  position: relative;
+}
+
+.input-preview {
+  position: absolute;
+  font-size: 16px;
+  line-height: 33px;
+  width: 36px;
+  text-align: center;
 }
 
 .text-input {
@@ -112,6 +121,10 @@ textarea {
   padding: 5px 12px 4px;
   background-color: rgba(49, 212, 163, .3);
   border-radius: 3px;
+}
+
+input {
+  padding-left: 32px;
 }
 
 textarea {
