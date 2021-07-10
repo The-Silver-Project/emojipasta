@@ -1,3 +1,9 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
 html,
 body {
   height: 100%;
@@ -51,13 +57,12 @@ main {
   max-width: 800px;
   margin-left: auto;
   margin-right: auto;
-  padding-bottom: 12px;
+  padding: 0 24px 12px;
 }
 
 .fg-input,
 .bg-input {
   flex: 1;
-  margin-right: 24px;
 }
 
 .text-input {
@@ -68,19 +73,27 @@ input,
 textarea {
   display: block;
   border: 0;
-  border-bottom: 1px solid rgb(49, 212, 163);
   outline: 0;
   font: inherit;
-  color: rgb(49, 212, 163);
+  color: rgb(8, 65, 46);
   width: 100%;
-  padding: 0;
+  padding: 5px 12px 4px;
+  background-color: rgba(49, 212, 163, .3);
+  border-radius: 3px;
 }
 
 textarea {
   resize: none;
+  margin-left: 24px;
 }
 
 label div {
   font-size: 9px;
   color: rgba(0, 0, 0, .5);
+}
+
+.swap-icon {
+  height: 16px;
+  margin: 9px 12px 0;
+  opacity: .3;
 }
