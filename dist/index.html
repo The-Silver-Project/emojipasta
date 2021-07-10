@@ -7,8 +7,8 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>emojipasta</title>
-  <script type="module" crossorigin src="./assets/index.0d0d5e9c.js"></script>
-  <link rel="stylesheet" href="./assets/index.ecd2a85d.css">
+  <script type="module" crossorigin src="./assets/index.6573c59a.js"></script>
+  <link rel="stylesheet" href="./assets/index.3654cdd7.css">
 </head>
   <body>
     <section class="logo">
@@ -19,25 +19,29 @@
       </hgroup>
     </section>
 
-    <main></main>
+    <main>
+      <div id="result" class="result"></div>
+    </main>
 
     <section class="input">
       <label class="fg-input">
-        <input type="text">
+        <input type="text" value="#" id="fg">
         <div>fg</div>
       </label>
 
       <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAA7AAAAOwBeShxvQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAFNSURBVFiF7ZbBSgMxEIa/XqSgYHsSrz6FqNQFj9W3svowenOPLSj0IH2HUigWfICuWC96SJZOZyNbaSZV8Ich7GQ282fI/An8UnSAgR+TIwPmwKcfk5KQyUvrbzO5eQUaInkO7Kr5HBhGyPMBTHDVnOvJjOrOrawAboGmJDBNlFzaM7C/jQpIe4D6M/Dk2W6KNnAFHCp/V35k2HZBGxip9e90UIhETB04VWu/hIIkidg6sAMsBIHiu8AObucWItTzJBbAtcH6//iDuGF5KHoG69c+bt5YtsU7rlViJpctnYWCZqyKw0lEAgOqylohca+CRjjZjAFZgSCJBu5CyNWPr7jbahyBxBlwqXyF9z2WjlyxTGErlWjhrt3UJKayLE1cSxYpK1A+SCT2gAvgCDgIzP8Ux8C58lXOgBVqu8Aaa+mAJdZSwhQkrB43m+MLxSsbQN6sviIAAAAASUVORK5CYII=" class="swap-icon">
 
       <label class="bg-input">
-        <input type="text">
+        <input type="text" value="." id="bg">
         <div>bg</div>
       </label>
 
       <label class="text-input">
-        <textarea rows="1"></textarea>
+        <textarea rows="1" id="text">pasta</textarea>
         <div>text</div>
       </label>
     </section>
+
+    
   </body>
 </html>

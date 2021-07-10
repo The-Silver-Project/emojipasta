@@ -17,25 +17,29 @@
       </hgroup>
     </section>
 
-    <main></main>
+    <main>
+      <div id="result" class="result"></div>
+    </main>
 
     <section class="input">
       <label class="fg-input">
-        <input type="text">
+        <input type="text" value="#" id="fg">
         <div>fg</div>
       </label>
 
       <img src="./assets/swap.png" class="swap-icon">
 
       <label class="bg-input">
-        <input type="text">
+        <input type="text" value="." id="bg">
         <div>bg</div>
       </label>
 
       <label class="text-input">
-        <textarea rows="1"></textarea>
+        <textarea rows="1" id="text">pasta</textarea>
         <div>text</div>
       </label>
     </section>
+
+    <script type="module" src="./js/main.js"></script>
   </body>
 </html>
