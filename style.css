@@ -98,6 +98,7 @@ main {
 
 .text-input {
   flex: 1;
+  margin-left: 24px;
 }
 
 input,
@@ -115,7 +116,6 @@ textarea {
 
 textarea {
   resize: none;
-  margin-left: 24px;
 }
 
 label div {
