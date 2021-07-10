@@ -6,6 +6,8 @@ const fg = document.getElementById('fg');
 const bg = document.getElementById('bg');
 const text = document.getElementById('text');
 const swap = document.getElementById('swap');
+const lights = document.getElementById('lights');
+let lightStatus = 1;
 
 function replaceStr(str, rep) {
   if (!rep.startsWith(':') || !rep.endsWith(':')) return str;
@@ -36,6 +38,18 @@ swap.addEventListener('click', () => {
   fg.value = bg.value;
   bg.value = temp;
   run();
+});
+
+lights.addEventListener('click', () => {
+  if (lightStatus === 1) {
+    document.body.style.backgroundColor = 'black';
+    lights.innerHTML = 'lights on';
+    lightStatus = 0;
+  } else {
+    document.body.style.backgroundColor = 'white';
+    lights.innerHTML = 'lights off';
+    lightStatus = 1;
+  }
 });
 
 run();
