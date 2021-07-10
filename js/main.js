@@ -9,6 +9,7 @@ const swap = document.getElementById('swap');
 function run() {
   const str = bake(text.value, { fg: fg.value, bg: bg.value });
   result.innerText = str;
+  navigator.clipboard.writeText(str);
 }
 
 fg.addEventListener('input', run);
