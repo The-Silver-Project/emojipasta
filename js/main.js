@@ -60,7 +60,7 @@ function getFiltered(value) {
     selected = -1;
     return [];
   }
-  const cleaned = value.trim().replaceAll(':', '');
+  const cleaned = value.trim().toLowerCase().replaceAll(':', '');
   const l = list.filter((item) => item.key.includes(cleaned));
   if (!l.length) {
     selected = -1;
