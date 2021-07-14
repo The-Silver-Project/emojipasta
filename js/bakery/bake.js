@@ -5,7 +5,7 @@ function parseMarginStr(margin) {
   const margins = `${margin}`.split(' ').map((val) => Number.parseInt(val, 10));
   if (margins.length === 1) return [margins[0], margins[0], margins[0], margins[0]];
   if (margins.length === 2) return [margins[0], margins[1], margins[0], margins[1]];
-  if (margins.length === 3) return [margins[0], margins[1], margins[0], margins[1]];
+  if (margins.length === 3) return [margins[0], margins[1], margins[2], margins[1]];
   return margins;
 }
 
