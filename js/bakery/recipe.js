@@ -1,10 +1,19 @@
+/* eslint-disable no-control-regex */
+const BG = new RegExp('\x00', 'g');
+const FG = new RegExp('\x01', 'g');
+
+const parseRow = (row) => row
+  .replace(/-/g, BG.source)
+  .replace(/#/g, FG.source)
+  .split(' ');
+
 const ALPHA_MAPPINGS = [
   '#### ###- -### ###- #### #### #### #--# ### -### #--# #-- #---# #---# -##- ###- -##-- ###- -### ##### #---# #---# #-----# #---# #---# #####',
   '#--# #--# #--- #--# #--- #--- #--- #--# -#- --#- #-#- #-- ##-## ##--# #--# #--# #--#- #--# #--- --#-- #---# #---# #-----# -#-#- -#-#- ---#-',
   '#### ###- #--- #--# ###- ###- #-## #### -#- --#- ##-- #-- #-#-# #-#-# #--# ###- #--#- ###- -##- --#-- #---# #---# #--#--# --#-- --#-- --#--',
   '#--# #--# #--- #--# #--- #--- #--# #--# -#- #-#- #-#- #-- #---# #--## #--# #--- #--#- #-#- ---# --#-- #---# -#-#- #-#-#-# -#-#- --#-- -#---',
   '#--# ###- -### ###- #### #--- #### #--# ### -##- #--# ### #---# #---# -##- #--- -#### #--# ###- --#-- -###- --#-- -#---#- #---# --#-- #####',
-].map((row) => row.split(' '));
+].map(parseRow);
 
 const NUM_MAPPINGS = [
   '### -#- ### ### #-# ### ### ### ### ###',
@@ -12,7 +21,7 @@ const NUM_MAPPINGS = [
   '#-# -#- ### ### ### ### ### --# ### ###',
   '#-# -#- #-- --# --# --# #-# --# #-# --#',
   '### ### ### ### --# ### ### --# ### ###',
-].map((row) => row.split(' '));
+].map(parseRow);
 
 const SPECIAL_CHARS = {
   chars: ' ~!@#.:()*+-=?|/\\^',
@@ -22,7 +31,7 @@ const SPECIAL_CHARS = {
     '- #-#-# # #-#-# -#--#- - - #- -# -#- ### ### --- --##- # -#- -#- ---',
     '- ---#- - #--## #####- - # #- -# #-# -#- --- ### --#-- # #-- --# ---',
     '- ----- # -##-- #--#-- # - -# #- --- --- --- --- --#-- # --- --- ---',
-  ].map((row) => row.split(' ')),
+  ].map(parseRow),
 };
 
 const INVALID_CHAR = [
@@ -33,7 +42,7 @@ const INVALID_CHAR = [
   '###',
 ];
 
-export default function getCharMapping(char, row) {
+function getCharMapping(char, row) {
   if (!char) return '';
 
   const code = char.charCodeAt(0);
@@ -57,3 +66,9 @@ export default function getCharMapping(char, row) {
 
   return INVALID_CHAR[row];
 }
+
+export default getCharMapping;
+export {
+  BG,
+  FG,
+};

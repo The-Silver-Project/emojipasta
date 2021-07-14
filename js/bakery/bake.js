@@ -1,4 +1,4 @@
-import getCharMapping from './recipe';
+import getCharMapping, { BG, FG } from './recipe';
 
 // [top, right, bottom, left]
 function parseMarginStr(margin) {
@@ -14,17 +14,17 @@ function addMargin(mappings, margin) {
   const [top, right, bottom, left] = parseMarginStr(margin);
 
   // Add top & bottom margin
-  for (let m = 1; m <= top; m += 1) mappings.unshift('-'.repeat(mappingLength));
-  for (let m = 1; m <= bottom; m += 1) mappings.push('-'.repeat(mappingLength));
+  for (let m = 1; m <= top; m += 1) mappings.unshift(BG.source.repeat(mappingLength));
+  for (let m = 1; m <= bottom; m += 1) mappings.push(BG.source.repeat(mappingLength));
 
   return mappings
-  // Add left & right margin
-    .map((rowMappings) => '-'.repeat(left) + rowMappings + '-'.repeat(right))
+    // Add left & right margin
+    .map((rowMappings) => BG.source.repeat(left) + rowMappings + BG.source.repeat(right))
     .join('\n');
 }
 
 function addPadding(mappings, padding) {
-  return mappings.map((rowMappings) => rowMappings.join('-'.repeat(padding)));
+  return mappings.map((rowMappings) => rowMappings.join(BG.source.repeat(padding)));
 }
 
 function convert(inputStr, {
@@ -43,9 +43,9 @@ function convert(inputStr, {
   const paddedMappings = addPadding(mappings, padding);
   const finalMapping = addMargin(paddedMappings, margin);
 
-  return bg === '#'
-    ? finalMapping.replace(/#/g, '@').replace(/-/g, bg).replace(/@/g, fg)
-    : finalMapping.replace(/-/g, bg).replace(/#/g, fg);
+  return finalMapping
+    .replace(BG, bg)
+    .replace(FG, fg);
 }
 
 export default function bake(text, options) {
