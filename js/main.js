@@ -17,16 +17,16 @@ let filtered = [];
 let activePicker = null;
 
 Object.keys(mapping).forEach((key) => {
-  [mapping[key]] = mapping[key].split('-');
+  mapping[key] = mapping[key].split('-').map((val) => `&#x${val}`).join(';');
 });
 
-const list = Object.keys(mapping).map((key) => ({ key, value: mapping[key].split('-')[0] }));
+const list = Object.keys(mapping).map((key) => ({ key, value: mapping[key] }));
 
 function replaceStr(str, rep) {
   if (!rep.startsWith(':') || !rep.endsWith(':')) return str;
   const key = rep.slice(1, -1);
   if (!mapping[key]) return str;
-  return str.replaceAll(rep, `&#x${mapping[key]}`);
+  return str.replaceAll(rep, mapping[key]);
 }
 
 function getChangedStr(str, bgVal, fgVal) {
@@ -52,7 +52,7 @@ function updateInputPreview(value, target) {
     target.innerHTML = '';
     return;
   }
-  target.innerHTML = `&#x${mapping[key]}`;
+  target.innerHTML = mapping[key];
 }
 
 function getFiltered(value) {
@@ -89,7 +89,7 @@ function handlePickerClick(index) {
 function renderPicker(target) {
   const html = filtered.map((item, index) => `
     <div class="picker-entry ${index === selected ? 'selected' : ''}">
-      <div class="input-preview">&#x${item.value};</div>
+      <div class="input-preview">${item.value};</div>
       <div class="entry-text">${item.key}</div>
     </div>
   `).join('\n');
