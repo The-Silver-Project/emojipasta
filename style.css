@@ -48,8 +48,15 @@ h1 {
 h2 {
   font-size: 9px;
   position: absolute;
+  margin-top: 9px;
   margin-left: 3px;
   color: rgb(150, 150, 150);
+  line-height: 12px;
+}
+
+h2 a {
+  color: inherit;
+  text-decoration: underline dotted;
 }
 
 .lights {
